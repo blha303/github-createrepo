@@ -1,0 +1,12 @@
+#!/bin/bash
+
+createrepo $1
+cp -r Template $1
+cd $1
+git init
+git remote add origin git@github.com:blha303/$1.git
+echo "$1" > README.md
+echo "========" >> README.md
+git add .
+git commit -a -m "Initial"
+git push origin master

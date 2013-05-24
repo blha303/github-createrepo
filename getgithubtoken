@@ -1,0 +1,13 @@
+#!/usr/bin/python2.7
+from github3 import authorize
+from getpass import getuser, getpass
+user = getuser()
+password = ''
+while not password:
+    password = getpass('password for {0}: '.format(user))
+note = 'github3.py repo creation script'
+note_url = "http://blha303.com.au"
+scopes = ['user', 'repo']
+auth = authorize(user, password, scopes, note, note_url)
+print auth.token
+

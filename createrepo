@@ -1,0 +1,33 @@
+#!/usr/bin/python
+
+token = "TOKEN HERE"
+
+from github3 import login, GitHub
+from getpass import getpass, getuser
+import sys
+try:
+  import readline
+except ImportError:
+  pass
+
+if token == "TOKEN HERE":
+  print "Change the token variable in createrepo using the output of getgithubtoken"
+  sys.exit()
+
+user = getuser()
+
+g = login(token=token)
+
+repo = {}
+
+repo['name'] = sys.argv[1]
+repo['has_issues'] = "true"
+repo['has_wiki'] = "false"
+
+r = None
+if repo.get('name'):
+  r = g.create_repo(repo.pop('name'), **repo)
+
+if r:
+  print("Created {0} successfully.".format(r.name))
+  print("https://github.com/{0}/{1}".format(user, r.name))
