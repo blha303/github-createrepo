@@ -1,7 +1,7 @@
 github-createrepo
 ========
 
-Uses the python module [github3](https://github.com/ChristopherMacGown/python-github3)
+Uses the python module [github3](https://github.com/sigmavirus24/github3.py)
 
 Tested on Python 2.7.3.
 
